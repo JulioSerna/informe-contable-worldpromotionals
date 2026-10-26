@@ -429,11 +429,14 @@
     <!-- PUNTO 1 -->
     <div class="card">
       <div class="card-header">
-        <h2>1. Diarios Bancarios Sin Conciliar</h2>
-        <span class="badge badge-warning">154 Movimientos Pendientes</span>
+        <h2>1. Diarios Bancarios: Situación Real de Conciliación</h2>
+        <span class="badge badge-warning">Sin Conciliación Continua</span>
       </div>
       <p>
-        Se identificaron 2 diarios bancarios con transacciones registradas en el extracto (<code>account.bank.statement.line</code>) en estado <strong>No Conciliado</strong> (<code>is_reconciled = False</code>). Ambas corresponden a la operación del mes de <strong>septiembre de 2026</strong> en diarios Santander:
+        <strong>Diagnóstico Crítico:</strong> Que el tablero de Odoo muestre <em>"0 pendientes por conciliar"</em> en diarios como BBVA, MIFEL o AMEX <strong>no significa que estén conciliados</strong>. Significa que <strong>nunca se han subido los estados de cuenta bancarios (extractos)</strong> para cotejar las decenas de miles de pagos y salidas registradas en la contabilidad.
+      </p>
+      <p>
+        En toda la historia del sistema se han registrado <strong>más de 142,000 movimientos contables</strong> en diarios de bancos y caja, pero <strong>únicamente se han importado extractos para septiembre de 2026 en Santander</strong> (552 líneas en total).
       </p>
 
       <div class="company-title">A. PIMSA MARKETING GROUP (Compañía ID: 3)</div>
@@ -442,23 +445,53 @@
           <thead>
             <tr>
               <th>Diario</th>
-              <th>Código</th>
-              <th>Cuenta Contable Asociada</th>
-              <th>Fecha Más Antigua</th>
-              <th class="num">Movimientos Pendientes</th>
-              <th class="num">Importe Neto Pendiente</th>
-              <th>Diagnóstico</th>
+              <th>Cuenta Contable</th>
+              <th class="num">Saldo Contable</th>
+              <th class="num">Movimientos Contables (AML)</th>
+              <th class="num">Líneas de Extracto</th>
+              <th>Situación Real de Conciliación</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>BBVA 0199779337</strong></td>
+              <td>102.01.02 Bank</td>
+              <td class="num neg">-$ 23,046,633.63</td>
+              <td class="num"><strong>28,466</strong></td>
+              <td class="num">1 (2018)</td>
+              <td><span class="badge badge-danger">Sin Conciliar (Sin extractos)</span></td>
+            </tr>
+            <tr>
+              <td><strong>MIFEL 01600771929</strong></td>
+              <td>102.01.06 MIFEL</td>
+              <td class="num neg">-$ 77,644,117.32</td>
+              <td class="num"><strong>1,122</strong></td>
+              <td class="num">0</td>
+              <td><span class="badge badge-danger">Sin Conciliar (Sin extractos)</span></td>
+            </tr>
+            <tr>
+              <td><strong>AMEX</strong></td>
+              <td>102.01.05 AMEX</td>
+              <td class="num neg">-$ 4,357,708.08</td>
+              <td class="num"><strong>592</strong></td>
+              <td class="num">0</td>
+              <td><span class="badge badge-danger">Sin Conciliar (Sin extractos)</span></td>
+            </tr>
+            <tr>
               <td><strong>Santander 65507647973</strong></td>
-              <td><code>BNK2</code></td>
               <td>102.01.04 Santander 65507647973</td>
-              <td><strong>01/09/2026</strong></td>
-              <td class="num"><strong>122</strong></td>
-              <td class="num neg">-$ 4,191,167.75</td>
-              <td><span class="badge badge-warning">Pendiente de Cierre Sep 2026</span></td>
+              <td class="num neg">-$ 28,910,175.76</td>
+              <td class="num"><strong>51,614</strong></td>
+              <td class="num">331 (Sep 2026)</td>
+              <td><span class="badge badge-warning">Incompleto (122 pend. Sep 2026)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Cash (Caja)</strong></td>
+              <td>101.01.01 Cash</td>
+              <td class="num neg">-$ 187,095,601.55</td>
+              <td class="num"><strong>7,745</strong></td>
+              <td class="num">0</td>
+              <td><span class="badge badge-secondary">Sin Arqueo/Control</span></td>
             </tr>
           </tbody>
         </table>
@@ -470,23 +503,45 @@
           <thead>
             <tr>
               <th>Diario</th>
-              <th>Código</th>
-              <th>Cuenta Contable Asociada</th>
-              <th>Fecha Más Antigua</th>
-              <th class="num">Movimientos Pendientes</th>
-              <th class="num">Importe Neto Pendiente</th>
-              <th>Diagnóstico</th>
+              <th>Cuenta Contable</th>
+              <th class="num">Saldo Contable</th>
+              <th class="num">Movimientos Contables (AML)</th>
+              <th class="num">Líneas de Extracto</th>
+              <th>Situación Real de Conciliación</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>BBVA 0191058940</strong></td>
+              <td>BBVA 0191058940</td>
+              <td class="num neg">-$ 67,932,145.97</td>
+              <td class="num"><strong>17,310</strong></td>
+              <td class="num">0 activas</td>
+              <td><span class="badge badge-danger">Sin Conciliar (Sin extractos)</span></td>
+            </tr>
+            <tr>
               <td><strong>Santander 65507647942</strong></td>
-              <td><code>BNK2</code></td>
-              <td>102.01.05 Santander 65507647942</td>
-              <td><strong>01/09/2026</strong></td>
-              <td class="num"><strong>32</strong></td>
-              <td class="num pos">$ 697,861.82</td>
-              <td><span class="badge badge-warning">Pendiente de Cierre Sep 2026</span></td>
+              <td>Santander 65507647942</td>
+              <td class="num neg">-$ 28,032,211.33</td>
+              <td class="num"><strong>31,942</strong></td>
+              <td class="num">221 (Sep 2026)</td>
+              <td><span class="badge badge-warning">Incompleto (32 pend. Sep 2026)</span></td>
+            </tr>
+            <tr>
+              <td><strong>BBVA Tarjeta Crédito</strong></td>
+              <td>BBVA TARJETA DE CREDITO 1</td>
+              <td class="num neg">-$ 2,189,088.99</td>
+              <td class="num"><strong>368</strong></td>
+              <td class="num">0</td>
+              <td><span class="badge badge-danger">Sin Conciliar (Sin extractos)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Cash (Caja)</strong></td>
+              <td>Cash</td>
+              <td class="num neg">-$ 75,732,017.32</td>
+              <td class="num"><strong>3,553</strong></td>
+              <td class="num">0</td>
+              <td><span class="badge badge-secondary">Sin Arqueo/Control</span></td>
             </tr>
           </tbody>
         </table>
