@@ -405,8 +405,8 @@
       </div>
       <div class="kpi-card warning">
         <div class="kpi-title">Movimientos Bancarios Sin Conciliar</div>
-        <div class="kpi-value">357 transacciones</div>
-        <div class="kpi-subtext">Desde Junio de 2018 a Septiembre 2026</div>
+        <div class="kpi-value">154 transacciones</div>
+        <div class="kpi-subtext">Septiembre 2026 (Diarios Santander)</div>
       </div>
       <div class="kpi-card info">
         <div class="kpi-title">Cuentas con Codificación Anómala</div>
@@ -430,10 +430,10 @@
     <div class="card">
       <div class="card-header">
         <h2>1. Diarios Bancarios Sin Conciliar</h2>
-        <span class="badge badge-warning">357 Movimientos Pendientes</span>
+        <span class="badge badge-warning">154 Movimientos Pendientes</span>
       </div>
       <p>
-        Se identificaron 4 diarios bancarios con transacciones registradas en el extracto (<code>account.bank.statement.line</code>) en estado <strong>No Conciliado</strong> (<code>is_reconciled = False</code>). En dos diarios de BBVA existen pendientes que datan de hace más de 8 años (junio 2018), mientras que en los diarios de Santander corresponden a la operación del mes de septiembre de 2026.
+        Se identificaron 2 diarios bancarios con transacciones registradas en el extracto (<code>account.bank.statement.line</code>) en estado <strong>No Conciliado</strong> (<code>is_reconciled = False</code>). Ambas corresponden a la operación del mes de <strong>septiembre de 2026</strong> en diarios Santander:
       </p>
 
       <div class="company-title">A. PIMSA MARKETING GROUP (Compañía ID: 3)</div>
@@ -452,28 +452,13 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>BBVA 0199779337</strong></td>
-              <td><code>BNK1</code></td>
-              <td>102.01.02 Bank</td>
-              <td><strong>01/06/2018</strong></td>
-              <td class="num"><strong>64</strong></td>
-              <td class="num pos">$ 845,641.83</td>
-              <td><span class="badge badge-danger">Rezago Histórico (2018)</span></td>
-            </tr>
-            <tr>
               <td><strong>Santander 65507647973</strong></td>
               <td><code>BNK2</code></td>
               <td>102.01.04 Santander 65507647973</td>
               <td><strong>01/09/2026</strong></td>
-              <td class="num"><strong>121</strong></td>
-              <td class="num neg">-$ 4,190,789.81</td>
+              <td class="num"><strong>122</strong></td>
+              <td class="num neg">-$ 4,191,167.75</td>
               <td><span class="badge badge-warning">Pendiente de Cierre Sep 2026</span></td>
-            </tr>
-            <tr style="background:#F8F9FA; font-weight:700;">
-              <td colspan="4">Subtotal PIMSA MARKETING GROUP</td>
-              <td class="num">185</td>
-              <td class="num neg">-$ 3,345,147.98</td>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -495,15 +480,6 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>BBVA 0191058940</strong></td>
-              <td><code>BNK1</code></td>
-              <td>102.01.02 BBVA 0191058940</td>
-              <td><strong>01/06/2018</strong></td>
-              <td class="num"><strong>140</strong></td>
-              <td class="num pos">$ 35,629.59</td>
-              <td><span class="badge badge-danger">Rezago Histórico (2018)</span></td>
-            </tr>
-            <tr>
               <td><strong>Santander 65507647942</strong></td>
               <td><code>BNK2</code></td>
               <td>102.01.05 Santander 65507647942</td>
@@ -511,12 +487,6 @@
               <td class="num"><strong>32</strong></td>
               <td class="num pos">$ 697,861.82</td>
               <td><span class="badge badge-warning">Pendiente de Cierre Sep 2026</span></td>
-            </tr>
-            <tr style="background:#F8F9FA; font-weight:700;">
-              <td colspan="4">Subtotal PROMEXCOM WORLD PROMOTIONALS</td>
-              <td class="num">172</td>
-              <td class="num pos">$ 733,491.41</td>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -968,7 +938,7 @@
       </div>
       <ol class="step-list">
         <li><strong>Registro de Asientos de Apertura / Regularización:</strong> Se debe elaborar una póliza de ajuste con corte a una fecha convenida (ej. 31/12/2025 o 31/08/2026) que registre el saldo bancario real según estado de cuenta oficial del banco contra la cuenta de <em>Resultados de Ejercicios Anteriores</em> o <em>Aportaciones para futuros aumentos de capital</em>.</li>
-        <li><strong>Cierre de Extractos Históricos (2018):</strong> Para las 64 líneas de PIMSA y 140 de PROMEXCOM de 2018, conciliar contra cuentas de ajuste o depurar mediante corte de extracto si ya fueron reconocidas contablemente en ejercicios fiscales cerrados.</li>
+        <li><strong>Conciliación de Extractos Activos (Septiembre 2026):</strong> Completar la conciliación de las 122 líneas de PIMSA y 32 de PROMEXCOM pendientes de septiembre de 2026 en Santander contra sus respectivas pólizas de pago y cobro.</li>
         <li><strong>Corrección del Catálogo de Cuentas:</strong>
           <ul style="margin-left: 20px; margin-top: 6px;">
             <li>Reclasificar la cuenta <code>402.04.01 DEVOLUCIONES</code> a tipo <strong>Ingresos</strong> (no Banco).</li>
