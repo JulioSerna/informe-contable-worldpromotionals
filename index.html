@@ -623,14 +623,30 @@
     <!-- PUNTO 5 -->
     <div class="card">
       <div class="card-header">
-        <h2>5. Rutas de Consulta en Odoo 19 para Reproducir</h2>
-        <span class="badge badge-secondary">Verificación Rápida</span>
+        <h2>5. Guía de Reproducción en Odoo 19 para la Gerencia</h2>
+        <span class="badge badge-secondary">Rutas y Filtros Exactos</span>
       </div>
       <ol class="step-list">
-        <li><strong>Movimientos contables vs extractos:</strong> Ir a <code>Contabilidad > Contabilidad > Apuntes contables</code> y agrupar por <code>Diario</code> para constatar los miles de movimientos registrados sin extractos.</li>
-        <li><strong>Transacciones bancarias de extracto:</strong> Ir a <code>Contabilidad > Contabilidad > Transacciones bancarias</code>, filtrar por <code>No conciliado</code> y agrupar por <code>Diario</code> (Santander muestra 122 en PIMSA y 32 en PROMEXCOM).</li>
-        <li><strong>Saldos negativos y falta de apertura:</strong> Ir a <code>Contabilidad > Informes > Balanza de comprobación</code>, seleccionar la fecha de corte y desplegar cuentas <code>101</code> y <code>102</code>. En <code>Libro mayor</code> se constata que no existe asiento de apertura inicial.</li>
-        <li><strong>Cuentas mal codificadas:</strong> Ir a <code>Contabilidad > Configuración > Plan de Cuentas</code> y buscar los códigos directos (<code>1010</code>, <code>1012</code>, <code>103</code>, <code>104</code>, <code>108</code>, <code>DEVOLUCIONES</code>).</li>
+        <li>
+          <strong>Cómo ver los -$ 495,194,746.60 en saldos rojos:</strong><br>
+          • <em>Ruta:</em> <code>Contabilidad > Informes > Balanza de comprobación</code> (Trial Balance).<br>
+          • <em>Compañías:</em> En el selector superior derecho, activar <strong>ambas compañías</strong> (PIMSA y PROMEXCOM) o consultarlas por separado.<br>
+          • <em>Fecha:</em> Fecha de corte actual (ej. 26/10/2026).<br>
+          • <em>Resultado:</em> Desplegar <strong>100 Activo Circulante > 101 Efectivo y 102 Bancos</strong>. Se constatan los saldos acreedores en rojo: PIMSA con <code>-$ 321.3M</code> y PROMEXCOM con <code>-$ 173.8M</code> (total consolidado: <code>-$ 495,194,746.60</code>).
+        </li>
+        <li style="margin-top:12px;">
+          <strong>Cómo ver los 142,470 movimientos contables vs la falta de extractos:</strong><br>
+          • <em>Ruta de movimientos contables:</em> <code>Contabilidad > Contabilidad > Apuntes contables</code>. Seleccionar ambas compañías y en el botón <strong>Agrupar por</strong> elegir <code>Tipo de diario</code> (o <code>Diario</code>). El grupo de <em>Banco</em> y <em>Efectivo</em> suma <strong>142,470 apuntes asentados</strong> (89,679 en PIMSA y 53,239 en PROMEXCOM).<br>
+          • <em>Ruta de extractos bancarios:</em> <code>Contabilidad > Contabilidad > Transacciones bancarias</code>. Quitar filtros de fecha para ver el histórico completo: el contador global muestra <strong>únicamente 553 transacciones</strong> en toda la base de datos (552 de Santander de Sep 2026 y 1 de 2018).
+        </li>
+        <li style="margin-top:12px;">
+          <strong>Cómo ver los 154 movimientos de extracto pendientes de conciliar:</strong><br>
+          • <em>Ruta:</em> <code>Contabilidad > Contabilidad > Transacciones bancarias</code>. Filtrar por <code>No conciliado</code> y agrupar por <code>Diario</code>. Se listan las 122 líneas de PIMSA y 32 de PROMEXCOM en Santander.
+        </li>
+        <li style="margin-top:12px;">
+          <strong>Cómo ver las 13 cuentas con codificación errónea:</strong><br>
+          • <em>Ruta:</em> <code>Contabilidad > Configuración > Plan de Cuentas</code>. Buscar directamente los códigos <code>1010</code>, <code>1012</code>, <code>103</code>, <code>104</code>, <code>108</code>, <code>109</code> o el nombre <code>DEVOLUCIONES</code> y <code>BBVA TARJETA DE CREDITO</code>.
+        </li>
       </ol>
     </div>
 
